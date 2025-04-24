@@ -206,10 +206,8 @@ bool TF03::is_buffer_correct(std::vector<u_char> * data)
     if (data->size() == 9 && data->at(1) == 0x59) {
       if (verify_checksum(*data)) {
         return true;
-      }
-      else
-      {
-          RCLCPP_WARN(this->get_logger(), "Checksum not correct");
+      } else {
+        RCLCPP_WARN(this->get_logger(), "Checksum not correct");
       }
     } else if (data->size() > 9) {
       clear_incoming_buffer();
