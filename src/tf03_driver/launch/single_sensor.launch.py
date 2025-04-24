@@ -13,10 +13,9 @@ def generate_launch_description():
                 output="screen",
                 parameters=[
                     {
-                        "can_transmit_id": [3],
                         "sensor_frame": ["front"],
-                        "sensor_interface": "can",
-                        "can_device": "benewake_can",
+                        "sensor_interface": "serial",
+                        "serial_port": "/dev/ttyUSB0",
                     }
                 ],
             )
