@@ -64,6 +64,8 @@ TF03::TF03(const std::string & node_name)
   }
   if (sensor_interface == "serial") {
     interface = tf_03_interface::serial;
+    RCLCPP_INFO(
+      this->get_logger(), "Will use serial interface '%s'", serial_port.c_str());
   } else if (sensor_interface == "can") {
     interface = tf_03_interface::can;
     RCLCPP_INFO(
