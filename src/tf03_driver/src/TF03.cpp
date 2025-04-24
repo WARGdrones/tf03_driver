@@ -244,7 +244,9 @@ void TF03::process_incoming_buffer(std::vector<u_char> data, int can_id)
     u_int strength = strength_high_byte * 256 + strength_low_byte;
     float dist_meters = (float)dist / 100;
     sensor_data.at(can_id).range = dist_meters;
+    sensor_data.at(can_id).header.stamp = this->now();
     //sensor_data.at(can_id).strength = strength;  // TODO: add "strength" to /tf03_driver/sensor/* ROS topics
+    // we could use sensor_msgs::msg::LaserScan::intensities for this?
     sensor_pub.at(can_id)->publish(sensor_data.at(can_id));
   } else if (verify_checksum(data)) {
     // Data frame structure
