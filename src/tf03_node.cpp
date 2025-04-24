@@ -1,11 +1,13 @@
-#include <ros/ros.h>
 #include <TF03.h>
 
-int main(int argc, char **argv)
+#include <rclcpp/rclcpp.hpp>
+
+int main(int argc, char ** argv)
 {
-    ros::init(argc, argv, "tf03_node");
-    ros::NodeHandle nh("~");
-    ROS_INFO("Init TF03 object");
-    TF03 tf03(nh);
-    return 0;
+  rclcpp::init(argc, argv);
+  auto node = std::make_shared<TF03>("tf03_node");
+  RCLCPP_INFO(node->get_logger(), "Init TF03 object");
+  rclcpp::spin(node);
+  rclcpp::shutdown();
+  return 0;
 }

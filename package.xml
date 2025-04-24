@@ -1,12 +1,17 @@
 <?xml version="1.0"?>
-<package format="2">
+<package format="3">
   <name>tf03_driver</name>
-  <version>0.0.1</version>
-  <description>The tf03_driver provides ROS interface for tf_03 range sensor produced by Benewake.</description>
-  <maintainer email="support@husarion.com">Husarion</maintainer>
+  <version>0.0.2</version>
+  <description>The tf03_driver provides ROS2 interface for tf_03 range sensor produced by Benewake.</description>
+  <maintainer email="patrick@wargdrones.com">WARGdrones GmbH</maintainer>
   <license>Apache License 2.0</license>
 
-  <author email="lukasz.mitka@husarion.com">Łukasz Mitka</author>
-  <buildtool_depend>catkin</buildtool_depend>
+  <author email="patrick@wargdrones.com">Patrick Oetken</author>
 
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <export>
+  </export>
 </package>
